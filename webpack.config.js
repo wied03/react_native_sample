@@ -50,7 +50,8 @@ module.exports = {
       loader: 'babel',
       include: /src/,
       query: {
-        presets: ['es2015', 'react']
+        presets: ['es2015', 'react'],
+        cacheDirectory: 'tmp'
       }
     }]
   },

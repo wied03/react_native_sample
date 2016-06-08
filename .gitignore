@@ -40,4 +40,5 @@ android/app/libs
 android/keystores/debug.keystore
 
 # Webpack conversion
-./index.ios.js
+/index.ios.js
+/tmp
