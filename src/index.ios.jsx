@@ -17,10 +17,10 @@ class react_native_sample extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to React Native dude!
         </Text>
         <Text style={styles.instructions}>
-          To get startedd, edit index.ios.js
+          To get started, edit index.ios.js
         </Text>
         <Text style={styles.instructions}>
           Press Cmd+R to reload,{'\n'}
