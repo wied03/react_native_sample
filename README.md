@@ -2,7 +2,7 @@
 
 `npm install && bundle install`
 
-In node_modules/react-native/packager/react-packager/src/polyfills/polyfills.js, you need to modify the Object.assign polyfill
+In node_modules/react-native/packager/react-packager/src/polyfills/polyfills.js, you need to modify the Object.assign polyfill because it will complain about Opal prototypes
 
 Changed line 56
 
@@ -11,7 +11,7 @@ Changed line 56
     for (var key in nextSource) {
       if (__DEV__) {
         var hasOwnProperty = Object.prototype.hasOwnProperty;
-        if (!hasOwnProperty.call(nextSource, key) && key.indexOf('$') == -1) {
+        if (!hasOwnProperty.call(nextSource, key) && key.indexOf('$') == -1) { // changed this line
           throw new TypeError(
             'One of the sources for assign has an enumerable key on the ' +
             'prototype chain. This is an edge case that we do not support. ' +
@@ -36,4 +36,4 @@ Then run with `react-native run-ios`
 * Rather than commenting out the entire clause above, probably need to monkey patch it with an exclusion on
 all Opal prototypes. Couldn't easily do this in testing though
 * React packager is slow to refresh when index.ios.js is a big bundle with opal, etc. in it
-* https://github.com/mjohnston/react-native-webpack-server can sort of replace all of this but it's without a maintainer and currently as to fight against the React Native packager
+* https://github.com/mjohnston/react-native-webpack-server can sort of replace all of this but it's without a maintainer and currently has to fight against the React Native packager
