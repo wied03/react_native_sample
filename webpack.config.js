@@ -3,7 +3,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    'index.ios': path.join(__dirname, 'src/index.ios')
+    'index.ios': path.join(__dirname, 'src/index.ios.rb')
   },
   externals: [
     'react',
@@ -11,11 +11,9 @@ module.exports = {
   ],
   module: {
     loaders: [{
-      test: /\.jsx?$/,
-      loader: 'babel',
-      include: /src/,
+      test: /\.rb$/,
+      loader: 'opal-webpack',
       query: {
-        presets: ['es2015', 'react'],
         cacheDirectory: 'tmp'
       }
     }]
@@ -28,12 +26,5 @@ module.exports = {
     new webpack.DefinePlugin({
       __DEV__: true
     })
-  ],
-  resolve: {
-    extensions: [
-      '',
-      '.js',
-      '.jsx'
-    ]
-  }
+  ]
 };
