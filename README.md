@@ -1,4 +1,4 @@
-To get this working
+# Installation
 
 `npm install && bundle install`
 
@@ -23,9 +23,7 @@ Changed line 56
     }
 ```
 
-TODO:
-* Rather than commenting out the entire clause above, probably need to monkey patch it with an exclusion on
-all Opal prototypes. Couldn't easily do this in testing though
+# Running
 
 Fire off webpack watch with
 ```
@@ -33,3 +31,9 @@ bundle exec ./node_modules/.bin/webpack --watch &
 ```
 
 Then run with `react-native run-ios`
+
+# Limitations/TODOs
+* Rather than commenting out the entire clause above, probably need to monkey patch it with an exclusion on
+all Opal prototypes. Couldn't easily do this in testing though
+* React packager is slow to refresh when index.ios.js is a big bundle with opal, etc. in it
+* https://github.com/mjohnston/react-native-webpack-server can sort of replace all of this but it's without a maintainer and currently as to fight against the React Native packager
